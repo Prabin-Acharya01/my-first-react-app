@@ -1,0 +1,16 @@
+.employee-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  max-width: 260px;
+}
+
+.employee-title {
+  color: var(--accent);
+  margin: 4px 0;
+}
+
+.employee-email {
+  font-size: 14px;
+  color: var(--text-h);
+}
