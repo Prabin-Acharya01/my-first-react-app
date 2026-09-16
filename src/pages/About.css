@@ -1,0 +1,109 @@
+.about-hero {
+  padding-block: var(--space-9) var(--space-7);
+}
+
+.about-hero__title {
+  margin-top: var(--space-3);
+  font-size: var(--fs-display);
+  letter-spacing: var(--ls-tight);
+}
+
+.about-hero__text {
+  margin-top: var(--space-4);
+  max-width: 560px;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-relaxed);
+}
+
+.about-block {
+  padding-block: var(--space-7);
+  border-top: 1px solid var(--color-border);
+}
+
+.about-block__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: var(--space-6);
+}
+
+.about-block__title {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+.about-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.about-tag {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  color: var(--color-text);
+}
+
+.about-experience {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.about-experience__item {
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-experience__item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.about-experience__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.about-experience__head h3 {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+}
+
+.about-experience__period {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.about-experience__role {
+  margin-top: var(--space-1);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+.about-experience__description {
+  margin-top: var(--space-3);
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  max-width: 560px;
+}
+
+@media (max-width: 860px) {
+  .about-block__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+}

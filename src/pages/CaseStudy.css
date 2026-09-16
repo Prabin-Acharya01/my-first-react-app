@@ -1,0 +1,37 @@
+.case-study {
+  padding-block: var(--space-9) var(--space-10);
+  min-height: 50vh;
+}
+
+.case-study__title {
+  margin-top: var(--space-3);
+  font-size: var(--fs-display);
+  letter-spacing: var(--ls-tight);
+}
+
+.case-study__status {
+  margin-top: var(--space-6);
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+  color: var(--color-accent);
+}
+
+.case-study__text {
+  margin-top: var(--space-3);
+  max-width: 480px;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-relaxed);
+}
+
+.case-study__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-7);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+  border-bottom: 1px solid var(--color-text);
+  padding-bottom: 2px;
+}
