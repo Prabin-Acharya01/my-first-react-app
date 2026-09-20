@@ -1,10 +1,40 @@
 import { Link, useParams } from 'react-router-dom'
 import { projects } from '../data/projects.js'
+import PetsyCaseStudy from './PetsyCaseStudy.jsx'
+import HajirMobileCaseStudy from './HajirMobileCaseStudy.jsx'
+import HajirEmployerCandidateCaseStudy from './HajirEmployerCandidateCaseStudy.jsx'
+import DailingerCaseStudy from './DailingerCaseStudy.jsx'
+import DailingerMobileCaseStudy from './DailingerMobileCaseStudy.jsx'
+import JobPortalCaseStudy from './JobPortalCaseStudy.jsx'
 import './CaseStudy.css'
 
 function CaseStudy() {
   const { slug } = useParams()
   const project = projects.find((item) => item.slug === slug)
+
+  if (slug === 'petsy') {
+    return <PetsyCaseStudy />
+  }
+
+  if (slug === 'hajir-mobile-app') {
+    return <HajirMobileCaseStudy />
+  }
+
+  if (slug === 'hajir-employer-candidate') {
+    return <HajirEmployerCandidateCaseStudy />
+  }
+
+  if (slug === 'dailinger') {
+    return <DailingerCaseStudy />
+  }
+
+  if (slug === 'dailinger-mobile-app') {
+    return <DailingerMobileCaseStudy />
+  }
+
+  if (slug === 'job-portal') {
+    return <JobPortalCaseStudy />
+  }
 
   return (
     <section className="case-study">

@@ -1,4 +1,5 @@
 import { skills, tools, experience } from '../data/about.js'
+import MaskReveal from '../components/MaskReveal.jsx'
 import { useReveal } from '../hooks/useReveal.js'
 import './About.css'
 
@@ -9,7 +10,9 @@ function AboutHero() {
       <div className="container">
         <div ref={ref} className="reveal">
           <p className="eyebrow">ABOUT</p>
-          <h1 className="about-hero__title">Hi, I&rsquo;m Prabin.</h1>
+          <MaskReveal as="h1" className="about-hero__title">
+            Hi, I&rsquo;m Prabin.
+          </MaskReveal>
           <p className="about-hero__text">
             I design digital products with a focus on clarity, usability, and
             thoughtful interaction.
@@ -21,13 +24,12 @@ function AboutHero() {
 }
 
 function WhatIDo() {
-  const ref = useReveal()
   return (
     <section className="about-block">
       <div className="container about-block__grid">
-        <h2 ref={ref} className="reveal about-block__title">
+        <MaskReveal as="h2" className="about-block__title">
           WHAT I DO
-        </h2>
+        </MaskReveal>
         <ul className="about-tag-list">
           {skills.map((skill) => (
             <li key={skill} className="about-tag">
@@ -41,13 +43,12 @@ function WhatIDo() {
 }
 
 function Tools() {
-  const ref = useReveal()
   return (
     <section className="about-block">
       <div className="container about-block__grid">
-        <h2 ref={ref} className="reveal about-block__title">
+        <MaskReveal as="h2" className="about-block__title">
           TOOLS
-        </h2>
+        </MaskReveal>
         <ul className="about-tag-list">
           {tools.map((tool) => (
             <li key={tool} className="about-tag">
@@ -61,13 +62,12 @@ function Tools() {
 }
 
 function Experience() {
-  const ref = useReveal()
   return (
     <section className="about-block">
       <div className="container about-block__grid">
-        <h2 ref={ref} className="reveal about-block__title">
+        <MaskReveal as="h2" className="about-block__title">
           EXPERIENCE
-        </h2>
+        </MaskReveal>
 
         <div className="about-experience">
           {experience.map((job) => (

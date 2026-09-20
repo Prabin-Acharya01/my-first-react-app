@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Logo from './Logo.jsx'
-import Button from './Button.jsx'
-import Arrow from './Arrow.jsx'
 import MobileMenu from './MobileMenu.jsx'
+import ThemeToggle from './ThemeToggle.jsx'
 import './Navbar.css'
 
 const NAV_LINKS = [
@@ -17,10 +16,23 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
-    onScroll()
+    let frame = null
+
+    const update = () => {
+      frame = null
+      setScrolled(window.scrollY > 8)
+    }
+
+    const onScroll = () => {
+      if (frame === null) frame = requestAnimationFrame(update)
+    }
+
+    update()
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (frame !== null) cancelAnimationFrame(frame)
+    }
   }, [])
 
   useEffect(() => {
@@ -44,21 +56,19 @@ function Navbar() {
             ))}
           </nav>
 
-          <div className="navbar__cta">
-            <Button to="/#contact" variant="primary">
-              LET&rsquo;S TALK <Arrow />
-            </Button>
-          </div>
+          <div className="navbar__actions">
+            <ThemeToggle />
 
-          <button
-            type="button"
-            className="navbar__toggle"
-            aria-expanded={menuOpen}
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            {menuOpen ? 'CLOSE' : 'MENU'}
-          </button>
+            <button
+              type="button"
+              className="navbar__toggle"
+              aria-expanded={menuOpen}
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              {menuOpen ? 'CLOSE' : 'MENU'}
+            </button>
+          </div>
         </div>
       </header>
 

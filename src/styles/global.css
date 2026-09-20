@@ -19,6 +19,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  transition:
+    background-color var(--theme-dur) var(--ease-standard),
+    color var(--theme-dur) var(--ease-standard);
 }
 
 #root {
@@ -97,16 +100,56 @@ img {
   outline-offset: 3px;
 }
 
+::selection {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
 .reveal {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateY(20px);
   transition:
-    opacity var(--dur-slow) var(--ease-standard),
-    transform var(--dur-slow) var(--ease-standard);
+    opacity 0.8s var(--ease-standard),
+    transform 0.8s var(--ease-standard);
 }
 
 .reveal.is-visible {
   opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children: put `.stagger-fade` on descendants of a
+   `.reveal-group` container, with an optional inline `--fade-delay`
+   per element for a cascading entrance. */
+.stagger-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s var(--ease-standard),
+    transform 0.7s var(--ease-standard);
+  transition-delay: var(--fade-delay, 0s);
+}
+
+.reveal-group.is-visible .stagger-fade {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mask-reveal: wrap text in `.mask-reveal` (overflow-hidden) with a
+   `.mask-reveal__inner` child that wipes up into view. */
+.mask-reveal {
+  display: block;
+  overflow: hidden;
+}
+
+.mask-reveal__inner {
+  display: block;
+  transform: translateY(105%);
+  transition: transform 0.9s var(--ease-standard);
+  transition-delay: var(--mask-delay, 0s);
+}
+
+.mask-reveal.is-visible .mask-reveal__inner {
   transform: translateY(0);
 }
 
@@ -115,9 +158,15 @@ img {
     scroll-behavior: auto;
   }
 
-  .reveal {
+  .reveal,
+  .stagger-fade,
+  .mask-reveal__inner {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  [style*='--parallax-y'] {
+    transform: none !important;
   }
 }

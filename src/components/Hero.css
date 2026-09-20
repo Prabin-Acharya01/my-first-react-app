@@ -1,26 +1,40 @@
 .hero {
-  padding-block: var(--space-8) var(--space-9);
+  padding-block: var(--space-9);
 }
 
-.hero__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  gap: var(--space-9);
-  align-items: center;
+.hero__content {
+  max-width: 980px;
 }
 
 .hero__headline {
-  font-size: var(--fs-display);
-  line-height: var(--lh-tight);
-  letter-spacing: var(--ls-tight);
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
-  margin-top: var(--space-4);
+}
+
+.hero__role {
+  display: block;
+  margin-top: var(--space-1);
+  font-family: 'Caveat', cursive;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  line-height: 1;
+  color: var(--color-accent-soft);
+}
+
+.hero__subtext {
+  margin-top: var(--space-5);
+  max-width: 620px;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--color-text);
 }
 
 .hero__intro {
-  margin-top: var(--space-5);
+  margin-top: var(--space-4);
   max-width: 560px;
-  font-size: var(--fs-body-lg);
+  font-size: var(--fs-body);
   line-height: var(--lh-relaxed);
   color: var(--color-text-muted);
 }
@@ -49,17 +63,6 @@
   width: 24px;
   height: 1px;
   background: var(--color-border);
-}
-
-@media (max-width: 1024px) {
-  .hero__grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-7);
-  }
-
-  .hero__visual {
-    max-width: 480px;
-  }
 }
 
 @media (max-width: 600px) {
