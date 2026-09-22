@@ -5,49 +5,47 @@ import { useReveal } from '../hooks/useReveal.js'
 import './CaseStudyShared.css'
 
 const ROLE_CONTRIBUTION = [
-  '[ADD: which parts of the mobile app you personally designed]',
-  '[ADD: whether you worked solo or alongside other designers/PMs/devs]',
-  '[ADD: what you handed off — wireframes, hi-fi screens, design system components, prototypes]',
+  'Improved and expanded the Dailinger mobile experience across Calling, Contacts, Messaging, Unified Call Box, and Settings.',
+  'Brought selected web capabilities into mobile, adapted for smaller screens and mobile usage patterns.',
+  'Improved navigation and touch interaction patterns across the app.',
+  'Maintained consistency between the Web and Mobile experiences.',
+]
+
+const KEY_AREAS = [
+  { title: 'Calling', description: 'Improved the calling experience and made essential call actions easier to reach.' },
+  { title: 'Contacts', description: 'A simpler way to browse, search, and manage contacts on mobile.' },
+  { title: 'Messaging', description: 'Adapted messaging into a focused mobile conversation experience.' },
+  { title: 'Unified Call Box', description: 'Brought core calling and communication actions into one mobile view.' },
+  { title: 'Settings', description: 'Structured settings into clear categories so preferences are easy to find.' },
 ]
 
 const PROCESS_STAGES = [
   {
-    title: 'Discovery',
-    description:
-      '[ADD: how the requirement came in — new feature request, client need, internal roadmap item]',
+    title: 'Understand',
+    description: 'Reviewed existing web workflows and how users relied on them day to day.',
   },
   {
-    title: 'Research & Flows',
-    description:
-      '[ADD: who you talked to and what flows/edge cases you mapped for the mobile experience]',
+    title: 'Simplify',
+    description: 'Identified the most important mobile use cases and cut the rest.',
   },
   {
-    title: 'Wireframes & IA',
-    description:
-      '[ADD: how you structured the interface and validated it with the team]',
+    title: 'Adapt',
+    description: 'Rebuilt those flows for touch, quick access, and clear hierarchy — not a shrunk web page.',
   },
   {
-    title: 'Design System',
-    description:
-      '[ADD: how you extended the Dailinger design system to native mobile patterns]',
-  },
-  {
-    title: 'Handoff & Iteration',
-    description:
-      '[ADD: how you worked with developers, and what changed after real usage/feedback]',
+    title: 'Validate',
+    description: 'Reviewed with the team and iterated based on real usage and feedback.',
   },
 ]
 
 const OUTCOMES = [
-  '[ADD: qualitative result — e.g. faster access to key flows on mobile]',
-  '[ADD: internal/team feedback, if shareable]',
-  '[ADD: only include hard metrics if your company has approved sharing them]',
+  "Extended Dailinger's core communication capabilities beyond the web, giving users calling, contacts, messaging, and settings on the go.",
+  'Established mobile-friendly patterns that stayed consistent with the web platform.',
 ]
 
 const LEARNINGS = [
-  '[ADD: what designing a mobile companion to a web SaaS platform taught you]',
-  '[ADD: a constraint you had to design around — technical, platform, or legacy system limits]',
-  '[ADD: how building for mobile changed how you think about the shared design system]',
+  "Adapting an existing web platform for mobile means prioritizing, not shrinking — the same feature can need a different interaction model.",
+  'Keeping mobile and web consistent while respecting mobile-specific constraints requires deliberate trade-offs, not a direct port.',
 ]
 
 const SCREEN_SHOTS = [
@@ -78,9 +76,9 @@ function DailingerMobileCaseStudy() {
             DAILINGER MOBILE APP
           </MaskReveal>
           <p className="case-page__tagline">
-            Designing the mobile app experience for Dailinger, extending the
-            telecommunications platform&rsquo;s design system to native
-            mobile flows.
+            Bringing essential business communication — calling, contacts,
+            messaging, and settings — to mobile, adapted from the Dailinger
+            web platform for on-the-go use.
           </p>
 
           <div className="case-page__meta">
@@ -116,8 +114,12 @@ function DailingerMobileCaseStudy() {
 
         <Block title="OVERVIEW">
           <p className="draft-copy">
-            [ADD: 2–3 sentences on what the Dailinger mobile app is, who uses
-            it, and where it sits alongside the web platform.]
+            Dailinger Mobile brings essential business communication to
+            users on the go — calls, contacts, messaging, and communication
+            settings, all from a mobile device. I worked on improving the
+            existing mobile experience and extending key capabilities from
+            the web platform into mobile, adapted for smaller screens and
+            mobile usage patterns.
           </p>
         </Block>
 
@@ -129,10 +131,24 @@ function DailingerMobileCaseStudy() {
           </ul>
         </Block>
 
+        <Block title="KEY AREAS" wide>
+          <div className="case-ia-grid">
+            {KEY_AREAS.map((area) => (
+              <div key={area.title} className="case-ia-card">
+                <h3 className="case-ia-card__title">{area.title}</h3>
+                <p className="draft-copy">{area.description}</p>
+              </div>
+            ))}
+          </div>
+        </Block>
+
         <Block title="PROBLEM / CHALLENGE">
           <p className="draft-copy">
-            [ADD: the specific problem this app solved — what was
-            inconsistent, slow, or hard to access on mobile before.]
+            Dailinger's web platform packs in a lot of communication
+            capability, but mobile users need something faster and more
+            focused. The challenge was prioritizing the most important
+            actions and simplifying complex interactions — adapting web
+            functionality for mobile instead of just shrinking it down.
           </p>
         </Block>
 

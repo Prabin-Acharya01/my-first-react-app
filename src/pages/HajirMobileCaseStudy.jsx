@@ -5,49 +5,61 @@ import { useReveal } from '../hooks/useReveal.js'
 import './CaseStudyShared.css'
 
 const ROLE_CONTRIBUTION = [
-  '[ADD: which modules you personally designed — e.g. Attendance, Standup, Grievance]',
-  '[ADD: whether you worked solo or alongside other designers/PMs/devs on this module]',
-  '[ADD: what you handed off — wireframes, hi-fi screens, design system components, prototypes]',
+  'Translated business requirements into mobile user flows.',
+  'Designed wireframes and high-fidelity UI for employee and HR workflows.',
+  'Simplified complex HR information for mobile screens, including empty, loading, success, and error states.',
+  'Maintained consistency with the Hajir design system.',
+  'Worked with product, engineering, and QA through handoff and iteration.',
+  'Key areas: Attendance, Leave, Payslip, Employee Information, Notifications, and Account/Employer Switching.',
 ]
 
 const PROCESS_STAGES = [
   {
     title: 'Discovery',
     description:
-      '[ADD: how the problem/requirement came in — stakeholder request, user complaint, internal audit, etc.]',
+      'Studied existing web workflows, business requirements, and user roles to understand what each feature needed to accomplish on mobile.',
   },
   {
-    title: 'Research & Flows',
+    title: 'User Flows & IA',
     description:
-      '[ADD: who you talked to — HR admins, employees, internal stakeholders — and what flows you mapped]',
+      'Mapped key journeys around what the user needs, what action they take, and what happens next — surfacing the most-used information first.',
   },
   {
-    title: 'Wireframes & IA',
+    title: 'Wireframes & Interaction',
     description:
-      '[ADD: how you structured the module and validated it with the team]',
+      'Structured navigation, content hierarchy, and touch interactions — bottom sheets, filters, confirmations — before layering in visual design.',
   },
   {
     title: 'Visual Design & System',
     description:
-      '[ADD: how the module fits the existing Hajir design system, and any new patterns you introduced]',
+      'Built high-fidelity screens with reusable Hajir components — cards, lists, forms, status indicators — adapted across mobile screen sizes.',
   },
   {
     title: 'Handoff & Iteration',
     description:
-      '[ADD: how you worked with developers, and what changed after real usage/feedback]',
+      'Worked with developers and QA through implementation, refining designs based on technical constraints and edge cases.',
+  },
+]
+
+const DESIGN_APPROACH = [
+  { title: 'Prioritize', description: 'Surface the information users need most, first.' },
+  { title: 'Simplify', description: 'Break complex HR workflows into smaller, clear steps.' },
+  {
+    title: 'Stay Consistent',
+    description:
+      "Reuse familiar patterns so users don't relearn interactions across modules.",
   },
 ]
 
 const OUTCOMES = [
-  '[ADD: qualitative result — e.g. reduced steps to mark attendance, clearer grievance status tracking]',
-  '[ADD: internal/team feedback, if shareable]',
-  '[ADD: only include hard metrics if your company has approved sharing them]',
+  'Made everyday HR tasks — attendance, leave, payslips — quick to complete without opening the full web platform.',
+  'Established reusable mobile states (empty, loading, error) applied consistently across HR modules.',
+  'Closer design-to-dev handoff led to fewer gaps between the design intent and the shipped experience.',
 ]
 
 const LEARNINGS = [
-  '[ADD: what working on a live, multi-module HRMS product taught you]',
-  '[ADD: a constraint you had to design around — legacy screens, dev bandwidth, compliance rules]',
-  '[ADD: how collaborating with a team differed from solo/personal projects]',
+  "Mobile product design isn't just responsive layout — the same requirement can need a different interaction model on mobile.",
+  'Working with a live, multi-module HRMS product taught me to balance business rules, user needs, technical constraints, and design consistency.',
 ]
 
 const SCREEN_SHOTS = [
@@ -78,7 +90,7 @@ function HajirMobileCaseStudy() {
           <div className="case-page__meta">
             <div>
               <span className="case-block__label">ROLE</span>
-              <p>UI/UX Designer</p>
+              <p>UI/UX Designer / QA Engineer</p>
             </div>
             <div>
               <span className="case-block__label">YEAR</span>
@@ -108,9 +120,12 @@ function HajirMobileCaseStudy() {
 
         <Block title="OVERVIEW">
           <p className="draft-copy">
-            [ADD: 2–3 sentences on what the Hajir mobile app is, who uses it,
-            and the scale of the product — e.g. number of modules, company
-            size it serves.]
+            Hajir is an HRMS mobile app that brings everyday HR tasks —
+            attendance, leave, payslips, notifications, and employee
+            information — to employees and managers on the go, cutting down
+            the need to open the full web platform for routine tasks. I
+            worked on designing and improving these mobile experiences to
+            keep them simple and accessible on smaller screens.
           </p>
         </Block>
 
@@ -124,9 +139,12 @@ function HajirMobileCaseStudy() {
 
         <Block title="PROBLEM / CHALLENGE">
           <p className="draft-copy">
-            [ADD: the specific problem this module/feature solved for HR
-            admins or employees — what was broken, slow, or confusing
-            before.]
+            Hajir supports a wide range of HR processes that are easier to
+            organize on a large web interface. The challenge was adapting
+            these information-heavy workflows for mobile — making key
+            actions quick to find, keeping navigation clear, and presenting
+            employee and payroll data in a readable format — without simply
+            shrinking the web experience down to a smaller screen.
           </p>
         </Block>
 
@@ -140,6 +158,22 @@ function HajirMobileCaseStudy() {
                 <div className="case-process__body">
                   <h3 className="case-process__title">{stage.title}</h3>
                   <p className="draft-copy">{stage.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Block>
+
+        <Block title="DESIGN APPROACH">
+          <div className="case-process">
+            {DESIGN_APPROACH.map((item, index) => (
+              <div key={item.title} className="case-process__stage">
+                <div className="case-process__marker" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </div>
+                <div className="case-process__body">
+                  <h3 className="case-process__title">{item.title}</h3>
+                  <p className="draft-copy">{item.description}</p>
                 </div>
               </div>
             ))}

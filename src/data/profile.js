@@ -4,6 +4,5 @@ export const profile = {
   location: 'Kathmandu, Nepal',
   email: 'prabinacharya154@gmail.com',
   phone: '+977-98432070630',
-  // TODO: add real LinkedIn URL
-  linkedinUrl: null,
+  linkedinUrl: 'https://www.linkedin.com/in/prabinacharya1',
 }

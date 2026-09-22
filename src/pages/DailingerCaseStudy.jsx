@@ -5,49 +5,98 @@ import { useReveal } from '../hooks/useReveal.js'
 import './CaseStudyShared.css'
 
 const ROLE_CONTRIBUTION = [
-  '[ADD: which parts of the platform/design system you personally designed]',
-  '[ADD: whether you worked solo or alongside other designers/PMs/devs]',
-  '[ADD: what you handed off — wireframes, hi-fi screens, design system components, prototypes]',
+  'Designed Dialinger from its early stages, across both the Company and Super Admin platforms.',
+  'Translated business requirements into product flows — from onboarding to billing to calling.',
+  'Designed onboarding, subscription, communication, and administration workflows end to end.',
+  'Structured complex telecom concepts (IVR, number provisioning, call states) into understandable journeys.',
+  'Built reusable UI patterns and maintained consistency as new features were added.',
+  'Worked with product, engineering, and QA through handoff and iteration.',
+]
+
+const WORK_AREAS = [
+  {
+    title: 'Account & Onboarding',
+    description: 'Sign up, login, account setup, and initial configuration.',
+  },
+  {
+    title: 'Subscription & Billing',
+    description: 'Plan selection, purchase, upgrade/downgrade, and custom plans.',
+  },
+  {
+    title: 'Calling & Messaging',
+    description: 'Calling, messaging, contacts, call history, and the Unified Call Box.',
+  },
+  {
+    title: 'Phone Numbers',
+    description: 'Number purchasing, management, and configuration.',
+  },
+  {
+    title: 'CRM & IVR',
+    description: 'Call flows, IVR configuration, and CRM-linked communication.',
+  },
+  {
+    title: 'Administration',
+    description: 'Super Admin — customer, subscription, and platform-level management.',
+  },
 ]
 
 const PROCESS_STAGES = [
   {
     title: 'Discovery',
     description:
-      '[ADD: how the requirement came in — new feature request, client need, internal roadmap item]',
+      'Working on Dialinger from the start meant understanding the business model, user journey, and Company vs. Super Admin ownership before defining any screen.',
   },
   {
-    title: 'Research & Flows',
+    title: 'User Flows & Architecture',
     description:
-      '[ADD: who you talked to and what flows/edge cases you mapped for the telecom domain]',
+      'Mapped end-to-end journeys — sign up to first call, plan comparison to upgrade, contact to call to history — to keep individual features connected to the bigger picture.',
   },
   {
     title: 'Wireframes & IA',
     description:
-      '[ADD: how you structured the interface and validated it with the team]',
+      'Structured navigation, grouping, and progressive disclosure for complex areas like IVR, CRM, and number management, so power stayed accessible without early complexity.',
   },
   {
-    title: 'Design System',
+    title: 'Visual Design & System',
     description:
-      '[ADD: what scalable patterns/components you built or extended for reuse across the platform]',
+      'Built high-fidelity screens with scalable patterns — tables, step flows, call interfaces, status indicators — designed to extend as new features shipped.',
   },
   {
     title: 'Handoff & Iteration',
     description:
-      '[ADD: how you worked with developers, and what changed after real usage/feedback]',
+      'Worked with developers, PMs, and QA through implementation, continuing to refine designs against technical limits and real usage.',
+  },
+]
+
+const DESIGN_APPROACH = [
+  {
+    title: 'Start simple, reveal complexity',
+    description: 'Progressive disclosure so common tasks stay simple and advanced config stays available.',
+  },
+  {
+    title: 'Design the journey, not the screen',
+    description: 'Subscription, number purchase, and onboarding solved as before → action → confirmation → result.',
+  },
+  {
+    title: 'Make system states clear',
+    description: 'Calling, subscription, and number states (e.g. connecting → active → completed) always visible.',
+  },
+  {
+    title: 'Keep Company & Super Admin connected',
+    description: 'Separate responsibilities, one consistent set of patterns and mental models.',
   },
 ]
 
 const OUTCOMES = [
-  '[ADD: qualitative result — e.g. faster design-to-dev handoff after the design system, more consistent UI across modules]',
-  '[ADD: internal/team feedback, if shareable]',
-  '[ADD: only include hard metrics if your company has approved sharing them]',
+  'A single connected product experience across onboarding, subscriptions, calling, and administration — not a collection of separate tools.',
+  'Reusable patterns for step-based flows, configuration, and call states that scaled cleanly as new features shipped.',
+  'A consistent design language shared between the Company and Super Admin platforms.',
 ]
 
 const LEARNINGS = [
-  '[ADD: what designing for a telecom SaaS platform taught you]',
-  '[ADD: a constraint you had to design around — technical, regulatory, or legacy system limits]',
-  '[ADD: how building a design system changed how you think about scalability]',
+  'Designing a product from its early stages means thinking in business model → user journey → feature → workflow → system state → UI, not just screens.',
+  'Progressive disclosure is essential for telecom products — powerful configuration has to coexist with a simple everyday experience.',
+  'Working across Company and Super Admin sides taught me how to keep two different user experiences consistent without merging them into one.',
 ]
 
 const SCREEN_SHOTS = [
@@ -78,11 +127,11 @@ function DailingerCaseStudy() {
           <MaskReveal as="h1" className="case-page__title" delay={80}>
             DAILINGER WEB
           </MaskReveal>
-          <p className="case-page__subtitle">Company Side and Candidate Side</p>
+          <p className="case-page__subtitle">Company Side and Super Admin Side</p>
           <p className="case-page__tagline">
-            Designing experiences for a telecommunications SaaS platform,
-            including scalable interface patterns and a comprehensive design
-            system.
+            Designing a cloud communications platform end to end — calling,
+            messaging, phone numbers, IVR, CRM, and subscriptions — across
+            the Company and Super Admin sides.
           </p>
 
           <div className="case-page__meta">
@@ -118,8 +167,12 @@ function DailingerCaseStudy() {
 
         <Block title="OVERVIEW">
           <p className="draft-copy">
-            [ADD: 2–3 sentences on what Dailinger is, who uses it, and where
-            it sits in the telecom workflow.]
+            Dialinger is a cloud-based business communications platform for
+            managing calling, messaging, phone numbers, IVR, contacts, and
+            CRM from one place. I worked on it from its early stages, helping
+            shape the experience across both the Company and Super Admin
+            sides — from sign-up through plan management, calling, and
+            platform administration.
           </p>
         </Block>
 
@@ -131,10 +184,26 @@ function DailingerCaseStudy() {
           </ul>
         </Block>
 
+        <Block title="PRODUCT AREAS I WORKED ON" wide>
+          <div className="case-ia-grid">
+            {WORK_AREAS.map((area) => (
+              <div key={area.title} className="case-ia-card">
+                <h3 className="case-ia-card__title">{area.title}</h3>
+                <p className="draft-copy">{area.description}</p>
+              </div>
+            ))}
+          </div>
+        </Block>
+
         <Block title="PROBLEM / CHALLENGE">
           <p className="draft-copy">
-            [ADD: the specific problem this feature/module solved — what was
-            inconsistent, slow, or hard to scale before.]
+            Dialinger combines multiple telecom capabilities — onboarding,
+            billing, calling, numbers, IVR, CRM — into one platform, each
+            with its own rules and states. The challenge was making all of
+            it feel like one connected product instead of separate tools,
+            while designing from an early stage with requirements still
+            evolving: give businesses powerful capabilities without making
+            the everyday experience feel complicated.
           </p>
         </Block>
 
@@ -148,6 +217,22 @@ function DailingerCaseStudy() {
                 <div className="case-process__body">
                   <h3 className="case-process__title">{stage.title}</h3>
                   <p className="draft-copy">{stage.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Block>
+
+        <Block title="DESIGN APPROACH">
+          <div className="case-process">
+            {DESIGN_APPROACH.map((item, index) => (
+              <div key={item.title} className="case-process__stage">
+                <div className="case-process__marker" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </div>
+                <div className="case-process__body">
+                  <h3 className="case-process__title">{item.title}</h3>
+                  <p className="draft-copy">{item.description}</p>
                 </div>
               </div>
             ))}

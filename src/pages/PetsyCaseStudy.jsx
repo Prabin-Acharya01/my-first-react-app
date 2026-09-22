@@ -283,7 +283,7 @@ function PetsyCaseStudy() {
             </div>
             <div>
               <span className="case-block__label">YEAR</span>
-              <p>2026</p>
+              <p>2025</p>
             </div>
             <div>
               <span className="case-block__label">PLATFORM</span>
