@@ -20,6 +20,13 @@ function Footer() {
         <nav className="footer__links" aria-label="Footer">
           <Link to="/#work">Work</Link>
           <Link to="/about">About</Link>
+          <a
+            href="/Prabin-Acharya-Resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Resume
+          </a>
           <Link to="/#contact">Contact</Link>
           <LinkedInLink />
         </nav>

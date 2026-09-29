@@ -6,6 +6,10 @@ import './MobileMenu.css'
 const LINKS = [
   { label: 'WORK', to: '/#work' },
   { label: 'ABOUT', to: '/about' },
+  {
+    label: 'RESUME',
+    href: '/Prabin-Acharya-Resume.pdf',
+  },
   { label: 'CONTACT', to: '/#contact' },
 ]
 
@@ -16,17 +20,31 @@ function MobileMenu({ open, onClose }) {
       aria-hidden={!open}
     >
       <nav className="mobile-menu__links" aria-label="Mobile">
-        {LINKS.map((link) => (
-          <Link
-            key={link.label}
-            to={link.to}
-            className="mobile-menu__link"
-            onClick={onClose}
-            tabIndex={open ? 0 : -1}
-          >
-            {link.label}
-          </Link>
-        ))}
+        {LINKS.map((link) =>
+          link.href ? (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+              className="mobile-menu__link"
+              onClick={onClose}
+              tabIndex={open ? 0 : -1}
+            >
+              {link.label}
+            </a>
+          ) : (
+            <Link
+              key={link.label}
+              to={link.to}
+              className="mobile-menu__link"
+              onClick={onClose}
+              tabIndex={open ? 0 : -1}
+            >
+              {link.label}
+            </Link>
+          ),
+        )}
       </nav>
 
       <div className="mobile-menu__footer">

@@ -8,6 +8,10 @@ import './Navbar.css'
 const NAV_LINKS = [
   { label: 'WORK', to: '/#work' },
   { label: 'ABOUT', to: '/about' },
+  {
+    label: 'RESUME',
+    href: '/Prabin-Acharya-Resume.pdf',
+  },
   { label: 'CONTACT', to: '/#contact' },
 ]
 
@@ -49,11 +53,23 @@ function Navbar() {
           <Logo />
 
           <nav className="navbar__links" aria-label="Primary">
-            {NAV_LINKS.map((link) => (
-              <Link key={link.label} to={link.to} className="navbar__link">
-                {link.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((link) =>
+              link.href ? (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="navbar__link"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link key={link.label} to={link.to} className="navbar__link">
+                  {link.label}
+                </Link>
+              ),
+            )}
           </nav>
 
           <div className="navbar__actions">
