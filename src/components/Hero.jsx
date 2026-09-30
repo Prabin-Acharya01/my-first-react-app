@@ -20,6 +20,15 @@ function HeroPortrait() {
         aria-label="More about Prabin — hand-sketched self portrait"
       >
         <span ref={tiltRef} className="hero__portrait-tilt">
+          <span className="hero__portrait-back" aria-hidden="true" />
+          <span className="hero__portrait-ring" aria-hidden="true" />
+          <span className="hero__chip hero__chip--status" aria-hidden="true">
+            <span className="hero__chip-dot" />
+            Open for work
+          </span>
+          <span className="hero__chip hero__chip--role" aria-hidden="true">
+            UI/UX · QA
+          </span>
           <span className="hero__portrait-frame">
             <img
               src="/portrait-sketch.png"
@@ -97,13 +106,14 @@ function Hero() {
               className="hero__intro stagger-fade"
               style={{ '--fade-delay': '380ms' }}
             >
-              I&rsquo;m Prabin &mdash; a UI/UX Designer crafting intuitive
-              experiences across{' '}
+              I&rsquo;m Prabin &mdash; a UI/UX Designer with a{' '}
+              <span className="hero__em">Software Testing (QA)</span> mindset,
+              crafting intuitive experiences across{' '}
               <span className="hero__em">SaaS</span>,{' '}
               <span className="hero__em">CRM</span>,{' '}
               <span className="hero__em">Fintech</span>,{' '}
               <span className="hero__em">HRMS</span>,{' '}
-              <span className="hero__em">E-Commerce</span> and{' '}
+              <span className="hero__em">E&#8209;Commerce</span> and{' '}
               <span className="hero__em">Mobile Platforms</span>.
             </p>
 

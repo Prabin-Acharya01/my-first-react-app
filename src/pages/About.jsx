@@ -15,7 +15,8 @@ function AboutHero() {
           </MaskReveal>
           <p className="about-hero__text">
             I design digital products with a focus on clarity, usability, and
-            thoughtful interaction.
+            thoughtful interaction &mdash; and I test them with a Software
+            Testing (QA) mindset so they work as well as they look.
           </p>
         </div>
       </div>

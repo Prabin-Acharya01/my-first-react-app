@@ -34,6 +34,11 @@ function AboutTeaser() {
               understand both design and the technology behind the products I
               work on.
             </p>
+            <p className="stagger-fade" style={{ '--fade-delay': '360ms' }}>
+              Alongside design, I do <strong>Software Testing (QA)</strong>{' '}
+              &mdash; so I catch usability and functional issues early and
+              make sure what ships matches what was designed.
+            </p>
 
             <Link
               to="/about"

@@ -21,12 +21,13 @@ const STEPS = [
   {
     key: 'topic',
     label: 'What do you need',
-    question: 'What are you looking to build?',
+    question: 'What do you need help with?',
     options: [
       'Product / SaaS design',
       'Mobile app',
       'Website',
       'Design review',
+      'Software testing (QA)',
       'Just saying hi',
     ],
   },

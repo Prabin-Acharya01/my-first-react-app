@@ -40,7 +40,8 @@ function ContactSection() {
               className="contact-section__text stagger-fade"
               style={{ '--fade-delay': '260ms' }}
             >
-              Have a product idea, UX problem, or design opportunity?
+              Have a product idea, UX problem, design opportunity, or
+              software testing (QA) need?
               <br />
               I&rsquo;d be happy to hear about it.
             </p>

@@ -7,6 +7,8 @@ export const skills = [
   'Design Systems',
   'Prototyping',
   'Usability Testing',
+  'Software Testing (QA)',
+  'Bug Reporting',
 ]
 
 export const tools = [

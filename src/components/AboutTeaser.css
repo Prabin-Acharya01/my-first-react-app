@@ -27,6 +27,11 @@
   margin-bottom: var(--space-4);
 }
 
+.about-teaser__body strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
 .about-teaser__link {
   display: inline-flex;
   align-items: center;

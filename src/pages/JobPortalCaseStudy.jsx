@@ -33,7 +33,7 @@ const USER_NEEDS = [
 const UNIQUE_FEATURES = [
   'Dual-sided platform serving both job seekers and recruiters in one system.',
   'Dedicated admin panel for managing companies and listings.',
-  '[ADD: any other differentiator — e.g. resume builder, application tracking, notifications]',
+  'Application tracking for job seekers and a shortlist / reject review flow for recruiters, all in one place.',
 ]
 
 const IA_GROUPS = [
@@ -158,10 +158,15 @@ function JobPortalCaseStudy() {
         </div>
 
         <Block title="PROBLEM STATEMENT">
-          <p className="draft-copy">
-            [ADD: the core problem — e.g. job seekers struggle to find
-            relevant jobs quickly, and recruiters lack an easy way to manage
-            postings and applicants in one place.]
+          <p>
+            Job seekers often struggle to find relevant openings quickly,
+            and applying means repeating the same steps across different
+            sites with little visibility into what happens next. On the
+            other side, recruiters lack a simple way to post jobs, track
+            applicants, and review them in one place, and admins have no
+            clear overview of the companies and listings on the platform.
+            The challenge was to design a single, easy-to-use system that
+            serves all three groups.
           </p>
         </Block>
 
