@@ -1,12 +1,38 @@
 .contact-section {
   padding-block: var(--space-9);
-  border-top: 1px solid var(--color-border);
   scroll-margin-top: 88px;
+  z-index: 4;
+  padding-top: calc(var(--space-9) + 48px);
+  background:
+    radial-gradient(
+      ellipse 70% 60% at 100% 100%,
+      rgba(201, 255, 92, 0.22),
+      transparent 65%
+    ),
+    var(--color-accent);
+  color: #fff;
+}
+
+.contact-section h2,
+.contact-section p,
+.contact-section__label {
+  color: #fff;
+}
+
+.contact-section p,
+.contact-section__label {
+  opacity: 0.85;
+}
+
+.contact-section__email,
+.contact-section__linkedin {
+  color: #fff;
+  border-color: #fff;
 }
 
 .contact-section__inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--space-8);
 }
 
@@ -15,9 +41,10 @@
 }
 
 .contact-section__title {
-  font-size: var(--fs-display);
-  line-height: var(--lh-tight);
-  letter-spacing: var(--ls-tight);
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.035em;
   text-transform: uppercase;
 }
 
@@ -81,4 +108,81 @@
   .contact-section__email {
     font-size: var(--fs-body-lg);
   }
+}
+
+/* Contrast on the accent background (kept last so it wins the cascade) */
+.contact-section .contact-section__label {
+  color: #fff;
+  opacity: 0.7;
+}
+
+.contact-section .contact-section__details p,
+.contact-section .contact-section__linkedin,
+.contact-section .contact-section__text {
+  color: #fff;
+  opacity: 1;
+}
+
+.contact-section .contact-section__text {
+  opacity: 0.92;
+}
+
+.contact-section .contact-section__email {
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.6);
+}
+
+.contact-section .contact-section__details > div {
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.contact-section .contact-section__details > div:last-child {
+  border-bottom: 0;
+}
+
+/* Details now sit under the email; chat takes the right column */
+.contact-section .contact-section__details {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+  padding-top: 0;
+}
+
+.contact-section .contact-section__details > div,
+.contact-section .contact-section__details > div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.contact-section__inner {
+  align-items: start;
+}
+
+.contact-section__hl {
+  position: relative;
+  display: inline-block;
+  color: #c9ff5c;
+}
+
+.contact-section .contact-section__title .contact-section__hl {
+  color: #c9ff5c;
+}
+
+.contact-section__hl::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.06em;
+  height: 0.09em;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.85;
+}
+
+.contact-section .contact-section__text {
+  max-width: 460px;
+  font-size: var(--fs-body-lg);
 }

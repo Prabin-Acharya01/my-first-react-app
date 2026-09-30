@@ -1,6 +1,81 @@
 .hero {
+  position: relative;
   padding-block: var(--space-9);
   overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      ellipse 45% 60% at 82% 45%,
+      var(--hero-blue),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 40% 50% at 8% 95%,
+      var(--hero-lime),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 35% 40% at 50% 0%,
+      var(--hero-blue-soft),
+      transparent 70%
+    );
+}
+
+/* Faint dot grid that fades out toward the bottom */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(
+    var(--hero-dot) 1px,
+    transparent 1.5px
+  );
+  background-size: 28px 28px;
+  -webkit-mask-image: linear-gradient(180deg, #000 30%, transparent 90%);
+  mask-image: linear-gradient(180deg, #000 30%, transparent 90%);
+}
+
+/* Slowly drifting colour blob behind the portrait */
+.hero::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 12%;
+  right: 6%;
+  width: 460px;
+  height: 460px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 90deg,
+    var(--color-accent),
+    var(--color-accent-soft),
+    var(--color-accent)
+  );
+  filter: blur(90px);
+  opacity: 0.28;
+  animation: hero-drift 14s ease-in-out infinite alternate;
+}
+
+@keyframes hero-drift {
+  to {
+    transform: translate(-40px, 30px) rotate(40deg) scale(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::after {
+    animation: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .hero::after {
+    width: 280px;
+    height: 280px;
+    top: auto;
+    bottom: 8%;
+  }
 }
 
 .hero__scroll {
@@ -182,6 +257,11 @@
   font-size: var(--fs-body);
   line-height: var(--lh-relaxed);
   color: var(--color-text-muted);
+}
+
+.hero__em {
+  color: var(--color-text);
+  font-weight: 500;
 }
 
 .hero__actions {

@@ -1,3 +1,4 @@
+import ContactChat from './ContactChat.jsx'
 import Arrow from './Arrow.jsx'
 import LinkedInLink from './LinkedInLink.jsx'
 import MaskReveal from './MaskReveal.jsx'
@@ -11,7 +12,7 @@ function ContactSection() {
   const parallaxRef = useParallax(0.08)
 
   return (
-    <section id="contact" className="contact-section">
+    <section id="contact" className="contact-section section-panel">
       <div className="container">
         <div ref={ref} className="reveal reveal-group contact-section__inner">
           <div ref={parallaxRef} className="contact-section__parallax">
@@ -31,7 +32,7 @@ function ContactSection() {
                 className="contact-section__title-line"
                 delay={160}
               >
-                USEFUL.
+                <span className="contact-section__hl">USEFUL.</span>
               </MaskReveal>
             </h2>
 
@@ -51,25 +52,23 @@ function ContactSection() {
             >
               {profile.email} <Arrow />
             </a>
-          </div>
 
-          <div
-            className="contact-section__details stagger-fade"
-            style={{ '--fade-delay': '400ms' }}
-          >
+            <div
+              className="contact-section__details stagger-fade"
+              style={{ '--fade-delay': '400ms' }}
+            >
             <div>
               <span className="contact-section__label">LOCATION</span>
               <p>{profile.location}</p>
-            </div>
-            <div>
-              <span className="contact-section__label">PHONE</span>
-              <p>{profile.phone}</p>
             </div>
             <div>
               <span className="contact-section__label">SOCIAL</span>
               <LinkedInLink className="contact-section__linkedin" />
             </div>
           </div>
+          </div>
+
+          <ContactChat />
         </div>
       </div>
     </section>

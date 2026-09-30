@@ -9,6 +9,14 @@
   --color-accent: #4f6bff;
   --color-accent-ink: #ffffff;
   --color-accent-soft: #c9ff5c;
+  --color-bg-alt: #0e1018;
+  --color-glow: rgba(79, 107, 255, 0.16);
+  --color-footer: #050506;
+  --panel-shadow: rgba(0, 0, 0, 0.35);
+  --hero-blue: rgba(79, 107, 255, 0.22);
+  --hero-blue-soft: rgba(79, 107, 255, 0.12);
+  --hero-lime: rgba(201, 255, 92, 0.10);
+  --hero-dot: rgba(255, 255, 255, 0.10);
 
   /* Typography */
   --font-sans:
@@ -74,4 +82,12 @@
   --color-accent: #2b4ced;
   --color-accent-ink: #ffffff;
   --color-accent-soft: #4d7a12;
+  --color-bg-alt: #e8ebfb;
+  --color-glow: rgba(43, 76, 237, 0.14);
+  --color-footer: #0a0a0a;
+  --panel-shadow: rgba(43, 76, 237, 0.10);
+  --hero-blue: rgba(43, 76, 237, 0.20);
+  --hero-blue-soft: rgba(43, 76, 237, 0.10);
+  --hero-lime: rgba(120, 200, 40, 0.20);
+  --hero-dot: rgba(10, 10, 10, 0.14);
 }

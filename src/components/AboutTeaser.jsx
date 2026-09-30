@@ -8,12 +8,12 @@ function AboutTeaser() {
   const ref = useReveal()
 
   return (
-    <section id="about" className="about-teaser">
+    <section id="about" className="about-teaser section-panel">
       <div className="container">
         <div ref={ref} className="reveal reveal-group about-teaser__inner">
           <MaskReveal as="h2" className="about-teaser__title">
-            A LITTLE ABOUT ME.
-          </MaskReveal>
+              A LITTLE ABOUT ME.
+            </MaskReveal>
 
           <div className="about-teaser__body">
             <p className="stagger-fade" style={{ '--fade-delay': '80ms' }}>

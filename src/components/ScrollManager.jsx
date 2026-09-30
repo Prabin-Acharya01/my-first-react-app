@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
 function ScrollManager() {
-  const { pathname, hash } = useLocation()
+  const { pathname, hash, key } = useLocation()
 
   useEffect(() => {
     if (hash) {
@@ -15,7 +15,7 @@ function ScrollManager() {
     }
 
     window.scrollTo({ top: 0 })
-  }, [pathname, hash])
+  }, [pathname, hash, key])
 
   return null
 }

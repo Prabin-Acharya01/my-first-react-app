@@ -8,7 +8,7 @@ function WorkSection() {
   const headingRef = useReveal()
 
   return (
-    <section id="work" className="work-section">
+    <section id="work" className="work-section section-panel">
       <div className="container">
         <div ref={headingRef} className="reveal work-section__heading">
           <MaskReveal as="h2" className="work-section__title">
