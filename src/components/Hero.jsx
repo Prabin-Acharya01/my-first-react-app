@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Button from './Button.jsx'
 import Arrow from './Arrow.jsx'
-import MaskReveal from './MaskReveal.jsx'
+import SplitText from './SplitText.jsx'
 import { useReveal } from '../hooks/useReveal.js'
 import { useTilt } from '../hooks/useTilt.js'
 import { useScrollExit } from '../hooks/useScrollExit.js'
@@ -58,14 +58,14 @@ function Hero() {
         <div className="container hero__grid">
           <div ref={textRef} className="reveal-group hero__content">
             <h1 className="hero__headline">
-              <MaskReveal as="span" className="hero__line" delay={80}>
+              <SplitText as="span" className="hero__line" delay={120}>
                 PRABIN ACHARYA
-              </MaskReveal>
+              </SplitText>
             </h1>
 
             <span
               className="hero__role-row stagger-fade"
-              style={{ '--fade-delay': '220ms' }}
+              style={{ '--fade-delay': '900ms' }}
             >
               <span className="hero__role">ui/ux designer.</span>
               <svg
@@ -95,7 +95,7 @@ function Hero() {
 
             <p
               className="hero__subtext stagger-fade"
-              style={{ '--fade-delay': '300ms' }}
+              style={{ '--fade-delay': '1050ms' }}
             >
               Designing digital products that make{' '}
               <span className="accent">complex</span> things feel{' '}
@@ -104,7 +104,7 @@ function Hero() {
 
             <p
               className="hero__intro stagger-fade"
-              style={{ '--fade-delay': '380ms' }}
+              style={{ '--fade-delay': '1150ms' }}
             >
               I&rsquo;m Prabin &mdash; a UI/UX Designer with a{' '}
               <span className="hero__em">Software Testing (QA)</span> mindset,
@@ -119,7 +119,7 @@ function Hero() {
 
             <div
               className="hero__actions stagger-fade"
-              style={{ '--fade-delay': '440ms' }}
+              style={{ '--fade-delay': '1250ms' }}
             >
               <Button to="/#work" variant="primary">
                 VIEW MY WORK <Arrow />

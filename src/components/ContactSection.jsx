@@ -2,6 +2,7 @@ import ContactChat from './ContactChat.jsx'
 import Arrow from './Arrow.jsx'
 import LinkedInLink from './LinkedInLink.jsx'
 import MaskReveal from './MaskReveal.jsx'
+import SplitText from './SplitText.jsx'
 import { profile } from '../data/profile.js'
 import { useReveal } from '../hooks/useReveal.js'
 import { useParallax } from '../hooks/useParallax.js'
@@ -23,17 +24,20 @@ function ContactSection() {
               <MaskReveal
                 as="span"
                 className="contact-section__title-line"
-                delay={80}
+                delay={350}
               >
                 SOMETHING
               </MaskReveal>
-              <MaskReveal
-                as="span"
+              <span
                 className="contact-section__title-line"
-                delay={160}
+                style={{ display: 'block' }}
               >
-                <span className="contact-section__hl">USEFUL.</span>
-              </MaskReveal>
+                <span className="contact-section__hl">
+                  <SplitText as="span" delay={700}>
+                    USEFUL.
+                  </SplitText>
+                </span>
+              </span>
             </h2>
 
             <p

@@ -1,6 +1,12 @@
 import { useEffect, useRef } from 'react'
 
-export function useReveal() {
+/**
+ * Toggles `.is-visible` on the ref'd element as it enters the viewport.
+ * By default the class is removed again when the element leaves, so the
+ * entrance animation plays in reverse when scrolling back up and replays
+ * on re-entry. Pass `{ once: true }` to reveal a single time instead.
+ */
+export function useReveal({ once = false } = {}) {
   const ref = useRef(null)
 
   useEffect(() => {
@@ -16,7 +22,9 @@ export function useReveal() {
       ([entry]) => {
         if (entry.isIntersecting) {
           node.classList.add('is-visible')
-          observer.unobserve(node)
+          if (once) observer.unobserve(node)
+        } else if (!once) {
+          node.classList.remove('is-visible')
         }
       },
       { threshold: 0, rootMargin: '0px 0px -10% 0px' },
@@ -24,7 +32,7 @@ export function useReveal() {
 
     observer.observe(node)
     return () => observer.disconnect()
-  }, [])
+  }, [once])
 
   return ref
 }

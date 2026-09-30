@@ -19,6 +19,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  overflow-x: clip;
   transition:
     background-color var(--theme-dur) var(--ease-standard),
     color var(--theme-dur) var(--ease-standard);
@@ -26,6 +27,7 @@ body {
 
 #root {
   overflow-x: hidden;
+  overflow-x: clip; /* clip (unlike hidden) keeps position: sticky working */
 }
 
 h1,
@@ -206,4 +208,49 @@ img {
 }
 
 @media (prefers-reduced-motion: reduce) {
+}
+
+/* Split-text: letters rise in one after another from a clipped edge. */
+.split-reveal {
+  display: block;
+}
+
+.split-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.split-char {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-block: 0.08em;
+  margin-block: -0.08em;
+}
+
+.split-char__inner {
+  display: inline-block;
+  transform: translateY(115%) rotate(8deg);
+  transform-origin: left bottom;
+  /* Leaving (scrolling away / back up): quicker, last letter first */
+  transition: transform 0.55s cubic-bezier(0.5, 0, 0.75, 0)
+    var(--char-out, 0ms);
+}
+
+.is-visible.split-reveal .split-char__inner,
+.is-visible .split-reveal .split-char__inner {
+  transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1)
+    var(--char-delay, 0ms);
+}
+
+.is-visible.split-reveal .split-char__inner,
+.is-visible .split-reveal .split-char__inner {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .split-char__inner {
+    transform: none;
+    transition: none;
+  }
 }

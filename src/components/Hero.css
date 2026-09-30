@@ -79,10 +79,41 @@
 }
 
 .hero__scroll {
-  transform: translateY(var(--scroll-y, 0px)) scale(var(--scroll-scale, 1));
-  opacity: var(--scroll-fade, 1);
-  transform-origin: top center;
+  transform: scale(calc(1 - var(--scroll-p, 0) * 0.07));
+  opacity: calc(1 - var(--scroll-p, 0) * 0.75);
+  filter: blur(calc(var(--scroll-p, 0) * 4px));
+  transform-origin: center top;
   will-change: transform, opacity;
+}
+
+/* Classic layered scroll: the hero stays pinned while the next section
+   slides over it, and each part of the hero drifts at its own speed. */
+@media (min-width: 961px) {
+  .hero {
+    position: sticky;
+    top: 0;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    min-height: 100svh;
+  }
+
+  .hero__scroll {
+    width: 100%;
+  }
+}
+
+.hero__content {
+  transform: translateY(calc(var(--scroll-p, 0) * -50px));
+}
+
+.hero__headline {
+  transform: translateX(calc(var(--scroll-p, 0) * -9vw));
+}
+
+.hero__portrait-col {
+  transform: translateY(calc(var(--scroll-p, 0) * -90px))
+    rotate(calc(var(--scroll-p, 0) * 4deg));
 }
 
 .hero__grid {

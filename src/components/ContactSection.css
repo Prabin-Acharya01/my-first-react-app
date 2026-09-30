@@ -180,6 +180,20 @@
   border-radius: 999px;
   background: currentColor;
   opacity: 0.85;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.7s var(--ease-standard) 1.5s;
+}
+
+.is-visible .contact-section__hl::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-section__hl::after {
+    transform: none;
+    transition: none;
+  }
 }
 
 .contact-section .contact-section__text {

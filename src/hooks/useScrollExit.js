@@ -1,10 +1,9 @@
 import { useEffect, useRef } from 'react'
 
 /**
- * Tracks how far the ref'd element has scrolled past the top of the
- * viewport and exposes the progress (0 → 1) as `--scroll-fade`,
- * `--scroll-scale`, and `--scroll-y` custom properties, so the element's
- * own CSS can fade/shrink/lift it away as the user scrolls past it.
+ * Exposes page scroll progress (0 → 1 over ~one viewport) as `--scroll-p`
+ * on the ref'd element, so its CSS can choreograph how the content
+ * fades, shifts and shrinks as the next section slides over it.
  */
 export function useScrollExit() {
   const ref = useRef(null)
@@ -21,15 +20,11 @@ export function useScrollExit() {
 
     const update = () => {
       frame = null
-      const rect = node.getBoundingClientRect()
-      const distance = Math.max(window.innerHeight * 0.85, 1)
-      const progress = Math.min(Math.max(-rect.top / distance, 0), 1)
-      node.style.setProperty('--scroll-fade', (1 - progress).toFixed(3))
-      node.style.setProperty(
-        '--scroll-scale',
-        (1 - progress * 0.08).toFixed(3),
-      )
-      node.style.setProperty('--scroll-y', `${(progress * -40).toFixed(1)}px`)
+      // Based on window scroll (not the element's rect) so it keeps working
+      // when the element is pinned with position: sticky.
+      const distance = Math.max(window.innerHeight * 0.9, 1)
+      const progress = Math.min(Math.max(window.scrollY / distance, 0), 1)
+      node.style.setProperty('--scroll-p', progress.toFixed(3))
     }
 
     const onScroll = () => {
